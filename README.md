@@ -11,6 +11,27 @@ $ git remote add upstream git@github.com:Chronstruct/android-starter.git #for me
 
 Now, rename the project with the steps listed in [this](https://stackoverflow.com/questions/16804093/android-studio-rename-package/29092698#29092698) SO post.
 
+You should be able to run the app without errors (gradle has some red warnings, but that is OK).
+
+### Deploying
+##### Sign the APK
+You need a `keystore.properties` in the root of your project with the following format (without the `<``>`s):
+```text
+storeFile=<full/path/to/keystore.properties>
+storePassword=<KEY_PASSWORD>
+keyAlias=<ALIAS>
+keyPassword=<ALIAS_PASSWORD>
+```
+
+Don't have a key to sign with you? Follow this link. TODO
+
+##### Deploy to Internal track from gradle
+You need a `key.p12` file in the root of your project to use Play Console's API.
+
+Don't have a `key.p12` yet? Follow this link. TODO
+
+Also, fill in the `serviceAccountEmail = '<YOUR_SERVICE_ACCOUNT_EMAIL>'` (project's `build.gradle`) with your generated email with Play Store API access.
+
 ## This starter includes
 <p><details>
   <summary><b>Instant Apps</b></summary>
@@ -20,7 +41,7 @@ Now, rename the project with the steps listed in [this](https://stackoverflow.co
      ads - to instant app</br>
      links</br>
     </br>
-     "Try Now" is like window shopping. A gateway to try without commitment. "Try Now" removes commitment anxiety.</br>
+     "Try Now" is like window shopping. A gateway to try without commitment. "Try Now" removes commitment anxiety, and reduces install friction.</br>
     </br>
      Web banners: from "Install" to "Open"</br>
    </p>
@@ -50,6 +71,11 @@ Android Test - for on-device and off-device
 - given (ActivityTestRule, Builder)
 - when (espresso)
 - then (intents, assertions)
+
+#### UI tests with Espresso and Robots
+[Espresso cheat sheet  \|  Android Developers](https://developer.android.com/training/testing/espresso/cheat-sheet)
+
+[Adam McNeilly \- Espresso Patronum: The Magic Of The Robot Pattern on Vimeo](https://vimeo.com/266512108)
 
 #### Naming
 from [Android Architecture Part 5: How to Test Clean Architecture • Five](http://five.agency/android-architecture-part-5-test-clean-architecture/)
@@ -81,6 +107,10 @@ Example-style tests are examples of system usage. They are nice when testing edg
 
   }
 ```
+
+#### Tests as documentation
+- documentation goes stale
+- tests should not
 
 #### TDD
 With Android TDD, to get your first Integration test to fail (correctly, not throw exceptions), just need an empty Activity with some resource IDs.

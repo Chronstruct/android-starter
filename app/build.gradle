@@ -1,26 +1,84 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.github.triplet.play'
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
 // Needed for Dagger and DataBinding, specifically, the BR generation
 apply plugin: 'kotlin-kapt'
 
+// ------- APK signing --------- //
+// Create a variable called keystorePropertiesFile, and initialize it to your
+// keystore.properties file, in the rootProject folder.
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+// Initialize a new Properties() object called keystoreProperties.
+def keystoreProperties = new Properties()
+// Load your keystore.properties file into the keystoreProperties object.
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+// ------- PUBLISH from gradle ------ //
+play {
+    track = 'internal'
+}
+
 android {
+    // ------- APK signing --------- //
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+    // ------- PUBLISH from gradle ------ //
+    playAccountConfigs {
+        defaultAccountConfig {
+            serviceAccountEmail = '<YOUR_SERVICE_ACCOUNT_EMAIL>'
+            pk12File = rootProject.file('key.p12')
+        }
+    }
     compileSdkVersion 'android-P'
     defaultConfig {
             applicationId "com.chronstruct.starter"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 1
+        versionCode 1      // Increment before a PUBLISH
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas".toString())
+            }
+        }
+        playAccountConfig = playAccountConfigs.defaultAccountConfig
     }
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    flavorDimensions "mode"
+    // configure different classes and resources for different app versions
+    // usually dev, staging, prod, and api-variants
+    productFlavors {
+        dev {
+            dimension "mode"
+        }
+        // Flavor with pre-populated data (for dev and demoing)
+        seeded {
+            applicationIdSuffix ".seeded"
+            dimension "mode"
+            signingConfig signingConfigs.release
+            matchingFallbacks = ['dev']
+        }
+        prod {
+            dimension "mode"
+            signingConfig signingConfigs.release
         }
     }
 }
