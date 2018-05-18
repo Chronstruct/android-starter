@@ -93,6 +93,15 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-alpha1'
     implementation 'androidx.core:core-ktx:1.0.0-alpha1'
 
+    //Chronstruct-specific
+    implementation('com.github.Chronstruct:utils-android:v0.0.2') {
+        exclude group: 'com.android.support'
+    }
+    // For when testing locally:
+    // Uncomment project in settings.gradle.
+    // Use the Build Variants window to select the variant.
+//    implementation project(':utils')
+
     // Dagger2
     implementation "com.google.dagger:dagger:$daggerVer"
     implementation "com.google.dagger:dagger-android:$daggerVer"
