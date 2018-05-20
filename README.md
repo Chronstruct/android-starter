@@ -55,6 +55,10 @@ Also, fill in the `serviceAccountEmail = '<YOUR_SERVICE_ACCOUNT_EMAIL>'` (projec
    </p>
 </details></p>
 
+## Notes
+Since this app is not set up with dynamic `feature` modules, it's root folder name is `app`. If you switch over to using feature modules, be sure to rename `app` -> `base`.
+
+Follow codelabs like [Your First Android App Bundle](https://codelabs.developers.google.com/codelabs/your-first-dynamic-app/index.html?index=..%2F..%2Findex#0) and [Navigation Codelab](https://codelabs.developers.google.com/codelabs/android-navigation/index.html?index=..%2F..%2Findex#0) to get going. 
 
 ## Tips
 ### Testing
@@ -82,7 +86,7 @@ from [Android Architecture Part 5: How to Test Clean Architecture • Five](http
 
 specification-style naming: Name does not say anything about the implementation, and from the tests’ names – specification – we can write the actual concrete class. Specification-style names are usually the best way to go, but if you think you cannot test some implementation specific edge cases, you can always throw in few example-style tests.
 
-```java
+```
 @Test
  public void shouldDeleteExistingFeed() throws Exception {  
 
@@ -96,7 +100,7 @@ public void shouldIgnoreDeletingNonExistingFeed() throws Exception {  
 
 Example-style tests are examples of system usage. They are nice when testing edge cases, but don’t use them for everything, they are too coupled with the implementation.
 
-```java
+```
 @Test
  public void doSomethingWithIdsSmallerThanZero() throws Exception {  
 
