@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Starter</string>
+    <string name="btn_settings">Settings</string>
+
+    <string name="pref_category_colors">Colors</string>
+    <string name="pref_title_theme">Theme</string>
+    <string-array name="pref_theme_list_titles">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>Black</item>
+    </string-array>
+    <string-array name="pref_theme_list_values">
+        <item>LIGHT</item>
+        <item>DARK</item>
+        <item>BLACK</item>
+    </string-array>
 </resources>

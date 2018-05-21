@@ -1,6 +1,7 @@
 package com.chronstruct.starter.di
 
-import com.chronstruct.starter.MainActivity
+import com.chronstruct.starter.ui.main.MainActivity
+import com.chronstruct.starter.ui.main.MainFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -15,6 +16,9 @@ import dagger.android.ContributesAndroidInjector
 abstract class BuildersModule {
     @ContributesAndroidInjector
     abstract fun bindMainActivity(): MainActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindMainFragment(): MainFragment
 
 //    @ContributesAndroidInjector
 //    abstract fun bindDetailActivity(): DetailActivity

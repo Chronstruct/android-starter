@@ -1,6 +1,5 @@
 package com.chronstruct.starter.di
 
-import com.alexfacciorusso.daggerviewmodel.DaggerViewModelInjectionModule
 import com.chronstruct.starter.App
 import dagger.Component
 import dagger.android.AndroidInjector

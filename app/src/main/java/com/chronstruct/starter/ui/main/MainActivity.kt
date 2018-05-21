@@ -1,10 +1,10 @@
-package com.chronstruct.starter
+package com.chronstruct.starter.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.chronstruct.starter.ui.main.MainFragment
+import com.chronstruct.starter.R
+import dagger.android.support.DaggerAppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

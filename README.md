@@ -55,10 +55,14 @@ Also, fill in the `serviceAccountEmail = '<YOUR_SERVICE_ACCOUNT_EMAIL>'` (projec
    </p>
 </details></p>
 
-## Notes
+## Dev Notes
 Since this app is not set up with dynamic `feature` modules, it's root folder name is `app`. If you switch over to using feature modules, be sure to rename `app` -> `base`.
 
 Follow codelabs like [Your First Android App Bundle](https://codelabs.developers.google.com/codelabs/your-first-dynamic-app/index.html?index=..%2F..%2Findex#0) and [Navigation Codelab](https://codelabs.developers.google.com/codelabs/android-navigation/index.html?index=..%2F..%2Findex#0) to get going. 
+
+### Run Targets
+- `./gradlew connectedAndroidTest` - run UI tests
+
 
 ## Tips
 ### Testing
