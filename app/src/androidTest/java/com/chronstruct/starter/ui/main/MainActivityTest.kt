@@ -9,7 +9,7 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
-import com.chronstruct.starter.R
+import com.chronstruct.starter.R.id.btn_settings
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -23,10 +23,11 @@ class MainActivityTest {
     @Test
     fun canNavigateToSettings() {
         // given
-        val settingsButton = onView(withId(R.id.btn_settings))
+        val settingsButton = onView(withId(btn_settings))
 
         // when
         settingsButton.perform(click())
+//        btn_settings.performClick()
 
         // then
         onData(withKey("settings")).check(matches(isDisplayed()))
