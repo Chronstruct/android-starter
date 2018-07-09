@@ -88,6 +88,7 @@ android {
 
 dependencies {
     def lifecycle_version = "2.0.0-alpha1"
+    def nav_version = "1.0.0-alpha01"
     def daggerVer = '2.16'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -100,6 +101,11 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
+
+    // Navigation
+    implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
+    androidTestImplementation "android.arch.navigation:navigation-testing-ktx:$nav_version"
 
     //Chronstruct-specific
     implementation('com.github.Chronstruct:utils-android:v0.0.2') {
@@ -116,14 +122,9 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$daggerVer"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0-alpha1'
     // Dagger2 helper for ViewModels https://github.com/alexfacciorusso/DaggerViewModel
-//    implementation ('com.alexfacciorusso:daggerviewmodel:0.1.2') {
-//        exclude group: 'android.arch.lifecycle'
-//    }
+//    implementation 'com.alexfacciorusso:daggerviewmodel:0.1.2'
     kapt "com.google.dagger:dagger-android-processor:$daggerVer"
     kapt "com.google.dagger:dagger-compiler:$daggerVer"
-
-    // Dagger2 helper for ViewModels https://github.com/alexfacciorusso/DaggerViewModel
-    implementation 'com.alexfacciorusso:daggerviewmodel:0.1.2'
 
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.0'
