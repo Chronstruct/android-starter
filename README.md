@@ -63,6 +63,15 @@ Follow codelabs like [Your First Android App Bundle](https://codelabs.developers
 ### Run Targets
 - `./gradlew connectedAndroidTest` - run UI tests
 
+## Design Notes
+[wasabeef/awesome\-android\-ui: A curated list of awesome Android UI/UX libraries](https://github.com/wasabeef/awesome-android-ui) for widgets already built
+
+### Icons
+#### Adaptive Launcher Icons
+- [Designing Adaptive Icons – Google Design – Medium](https://medium.com/google-design/designing-adaptive-icons-515af294c783)
+  - With [this](https://github.com/nickbutcher/AdaptiveIconPlayground/raw/master/art/ic_launcher.sketch) sketch starter
+- [Create app icons with Image Asset Studio  \|  Android Developers](https://developer.android.com/studio/write/image-asset-studio#create-adaptive)
+- [Adaptive icons  \|  Android Developers](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive)
 
 ## Tips
 ### Testing
@@ -83,7 +92,11 @@ Android Test - for on-device and off-device
 #### UI tests with Espresso and Robots
 [Espresso cheat sheet  \|  Android Developers](https://developer.android.com/training/testing/espresso/cheat-sheet)
 
+[espresso\-helper API](https://github.com/Zhuinden/espresso-helper/blob/1d0f8380c7611dd500e12ca0e0fbbab91fcfe074/espresso-helper/src/main/java/com/zhuinden/espressohelper/EspressoHelper.kt)
+
 [Adam McNeilly \- Espresso Patronum: The Magic Of The Robot Pattern on Vimeo](https://vimeo.com/266512108)
+
+[Espresso Robot Pattern in Kotlin – Android Bits – Medium](https://medium.com/android-bits/espresso-robot-pattern-in-kotlin-fc820ce250f7)
 
 #### Naming
 from [Android Architecture Part 5: How to Test Clean Architecture • Five](http://five.agency/android-architecture-part-5-test-clean-architecture/)
