@@ -63,6 +63,11 @@ Follow codelabs like [Your First Android App Bundle](https://codelabs.developers
 ### Run Targets
 - `./gradlew connectedAndroidTest` - run UI tests
 
+### Livedata
+- [ViewModels and LiveData: Patterns \+ AntiPatterns – Google Developers – Medium](https://medium.com/google-developers/viewmodels-and-livedata-patterns-antipatterns-21efaef74a54)
+- [LiveData beyond the ViewModel — Reactive patterns using Transformations and MediatorLiveData](https://medium.com/google-developers/livedata-beyond-the-viewmodel-reactive-patterns-using-transformations-and-mediatorlivedata-fda520ba00b7)
+- [LiveData with SnackBar, Navigation and other events \(the SingleLiveEvent case\)](https://medium.com/google-developers/livedata-with-snackbar-navigation-and-other-events-the-singleliveevent-case-ac2622673150)
+
 ## Design Notes
 [wasabeef/awesome\-android\-ui: A curated list of awesome Android UI/UX libraries](https://github.com/wasabeef/awesome-android-ui) for widgets already built
 
